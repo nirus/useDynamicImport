@@ -5,7 +5,7 @@
 </p>
 <br />
 
-`<suspense />` equivalent react hook to dynamically import modules for code splitting. 
+`<Suspense />` equivalent react hook to dynamically import modules for code splitting on client side only. 
 
 Typescript compatible for module type inference for easy development.
 
