@@ -21,7 +21,7 @@ export const useDynamicImport = <T>(modules: () => T[]) => {
   const [isMounted, setIsMounted] = useState(false);
   const modulesFnRef = useRef(modules);
   const [resolvedValues, setResolvedValues] = useState<
-    [Awaited<T>[], { loading: Boolean; isErrored: boolean }]
+    [Awaited<T>[], { loading: boolean, isErrored: boolean, error?: unknown }]
   >([DEFAULT_VALUE, { loading: true, isErrored: false }]);
 
   useEffect(() => {
@@ -32,7 +32,7 @@ export const useDynamicImport = <T>(modules: () => T[]) => {
         const result = await Promise.all(modulesFnRef.current());
         setResolvedValues([result, { loading: false, isErrored: false }]);
       } catch (e) {
-        setResolvedValues([DEFAULT_VALUE, { loading: false, isErrored: true }]);
+        setResolvedValues([DEFAULT_VALUE, { loading: false, isErrored: true, error: e }]);
       }
       setIsMounted(true);
     })();
