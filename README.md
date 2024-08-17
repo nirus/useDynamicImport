@@ -11,7 +11,7 @@ Typescript compatible for module type inference for easy development.
 
 > Note: Once the module is imported it is cached and subsequent import will always serve the previously import cache.
 
-### The Hook: (source code) - Copy code directly and use it :)
+### The Hook - Copy the code. Free to use :)
 ```typescript
 import { useEffect, useRef, useState } from "react";
 
